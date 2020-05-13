@@ -1,0 +1,9 @@
+.ColorCircles {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    /* border-radius: 50%; */
+    margin: 20px;
+    line-height: 100px;
+}
