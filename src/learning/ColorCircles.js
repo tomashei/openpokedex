@@ -3,14 +3,14 @@ import './ColorCircles.css';
 
 
 const ColorCircles = (props) => {
-    const { id, color, radius } = props;
+    const { color, radius, animal } = props;
     const myStyle = {
         backgroundColor: color,
         borderRadius: radius,
       };
     return (
 
-        <div className='ColorCircles' style={myStyle}>{color}</div>
+        <div className='ColorCircles' style={myStyle}>{animal}</div>
 
     )
 

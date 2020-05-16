@@ -6,6 +6,9 @@ import './appLearning.css';
 import {circles} from './circles';
 
 
+import MyList from './MyList';
+
+
 const arrayLenght = circles.length;
 let selectedCircle = parseInt(arrayLenght / 2);
 
@@ -18,18 +21,21 @@ const checkSelection = (state, direction) => {
     } else {
         return state + direction;
     }
-
-
 };
+
+
+let redCircleRadius = [1, 2, 3, 4, 5, 6];
 
 class AppLearning extends Component {
     constructor() {
         super()
         this.state = {
             selected: selectedCircle,
+            redRadius: redCircleRadius.map(num => 50),
         }
-
     }
+
+
     
 
     onMyClickL = (event) => {
@@ -40,6 +46,14 @@ class AppLearning extends Component {
     onMyClickR = (event) => {
         this.setState({selected: checkSelection(this.state.selected, +1) });
         console.log('R', this.state.selected);
+    }
+
+
+
+    onRedClick = (event) => {
+        this.state.redRadius[event] = this.state.redRadius[event] + 10;
+        this.setState({redRadius: this.state.redRadius});
+        console.log('test', this.state.redRadius);
     }
 
     render() {
@@ -54,6 +68,11 @@ class AppLearning extends Component {
                 <br></br>
 
                 <MyButton text='<<<' myClick={this.onMyClickL} /> <MyButton text='>>>' myClick={this.onMyClickR} />
+
+
+                <MyList myRedClick={this.onRedClick} myRadius={this.state.redRadius} />
+
+
 
 
             </div>
